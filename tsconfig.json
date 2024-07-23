@@ -1,35 +1,36 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "target": "ES6",
-    "lib": ["ES6", "ESNext"],
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "jsx": "react-jsx",
-    "module": "ESNext",
-    "declaration": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "incremental": true,
-    "declarationDir": "types",
-    "sourceMap": true,
-    "outDir": "dist",
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "typeRoots": [ "./node_modules/@types/" ],
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "emitDeclarationOnly": true
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      },
+      {
+        "name": "typescript-snapshots-plugin",
+        "snapshotDir": "./__snapshots__/",
+        "snapshotCallIdentifiers": [
+            "toMatchSnapshot",
+            "myMatchSnapshot"
+        ]
+    }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["src/**/*"],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "src/__tests__/**/*",
-    "src/stories/**/*",
-    "**/*.spec.tsx",
-    "**/*.test.tsx",
-    "**/*.stories.tsx",
-    "**/*.story.tsx"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "jest.config.js"],
+  "exclude": ["node_modules"]
 }
